@@ -18,32 +18,43 @@ timezone: America/New_York
 permalink: /:slug
 
 site_heading: >
-    me<span class="faded">.shawna jean</span>
+  me<span class="faded">.shawna jean</span>
 
+collections:
+  my_tags:
+    output: true
+    permalink: /tag/:name/
 
 # Build settings
 markdown: kramdown
 
 gems:
-    - jekyll-paginate
+  - jekyll-paginate
+  - github-pages
 
 sass:
-    style: compressed
-    sass_dir: _sass
+  style: compressed
+  sass_dir: _sass
 
 # Scopes
 defaults:
-    -
-        scope:
-            path:   ""
-            type:   "pages"
-        values:
-            layout: "page"
-    -
-        scope:
-            path:   ""
-            type:   "posts"
-        values:
-            layout: "post"
+  -
+    scope:
+      path:   ""
+      type:   "pages"
+    values:
+      layout: "page"
+  -
+    scope:
+      path:   ""
+      type:   "posts"
+    values:
+      layout: "post"
+  -
+    scope:
+      path:   ""
+      type: my_tags
+    values:
+      layout: blog_by_tag
 
-exclude: [vendor] # For travis ci
+exclude: [Gemfile, vendor] # For travis ci
